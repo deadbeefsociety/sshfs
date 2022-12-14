@@ -674,6 +674,7 @@ static inline int translate_id(uint32_t *id, GHashTable *map)
 static inline void buf_init(struct buffer *buf, size_t size)
 {
 	if (size) {
+		// malloc returns a void*, so on different systems using uint8_t to cast might lead to weird behavior?
 		buf->p = (uint8_t *) malloc(size);
 		if (!buf->p) {
 			fprintf(stderr, "sshfs: memory allocation failed\n");
@@ -719,6 +720,8 @@ static inline void buf_check_add(struct buffer *buf, size_t len)
 		buf_resize(buf, len);
 }
 
+/* append the data d, with size in bytes l, to the end of buffer b 
+then increment the end of buffer by l */
 #define _buf_add_mem(b, d, l)			\
 	buf_check_add(b, l);			\
 	memcpy(b->p + b->len, d, l);		\
