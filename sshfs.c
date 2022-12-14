@@ -229,7 +229,7 @@ struct conn {
 };
 
 struct buffer {
-	uint8_t *p;
+	uint8_t *p; // specifically unsigned 8-bit integer; not sure why?
 	size_t len;
 	size_t size;
 };
@@ -703,6 +703,8 @@ static inline void buf_clear(struct buffer *buf)
 
 static void buf_resize(struct buffer *buf, size_t len)
 {
+	//  & ~31 pads it to 32 bytes increments; 
+	// for example,  100 & -31 = 96, 33 & ~31 = 32, 29 & ~31 = 0
 	buf->size = (buf->len + len + 63) & ~31;
 	buf->p = (uint8_t *) realloc(buf->p, buf->size);
 	if (!buf->p) {
