@@ -2356,6 +2356,13 @@ static int sshfs_access(const char *path, int mask)
 	return err;
 }
 
+/* counting the number of components in a path/to/something
+e.g. /tmp/1/2/3 : 4
+/tmp/3 : 2
+/tmp/ : 1
+/tmp : 1
+/tmp/// : 1 
+*/
 static int count_components(const char *p)
 {
 	int ctr;
@@ -2368,6 +2375,12 @@ static int count_components(const char *p)
 	return ctr;
 }
 
+/* strip the common path prefix of both sp and tp (both changed). 
+Example: if a = "hello/world/1/2/3" and b = "hello/world/abc/2", then
+strip_common(&a, &b) would mean:
+a = 1/2/3
+b = abc/2
+TODO: rename / rewrite things to be more readable */
 static void strip_common(const char **sp, const char **tp)
 {
 	const char *s = *sp;
