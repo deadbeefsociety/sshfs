@@ -1,6 +1,6 @@
 ## This is a currently maintained fork of SSHFS
 
-SSHFS (original repo: https://github.com/libfuse/sshfs) has been declared to be unmaintained and it breaks our heart. So me and some friends have decided to fork it and give it some love.
+SSHFS (original repo: https://github.com/libfuse/sshfs) has been declared to be unmaintained and it breaks our heart. So some friends and I have decided to fork it and give it some love.
 
 There's a rust fork in progress by Greg Shuflin (https://github.com/neunenak/sshfs/tree/rust). Rust is a modern and memory safe programming language, and in the long term, it's not a bad decision to port it to rust.
 
