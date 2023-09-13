@@ -1,3 +1,12 @@
+Release 3.7.4 (2023-09-14)
+--------------------------
+
+* Support request size negotiation and increased throughput on high-latency connections
+* Supports connecting to vsock (7) via shfs -o vsock=CID:PORT
+* README in markdown instead of rst
+* Various test fixes
+
+
 Release 3.7.3 (2022-05-26)
 --------------------------
 
