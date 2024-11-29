@@ -1,15 +1,6 @@
-## This is a currently maintained fork of SSHFS
+This maintenance fork is archived since SSHFS is no longer abandoned.
 
-SSHFS (original repo: https://github.com/libfuse/sshfs) has been declared to be unmaintained and it breaks our heart. So me and some friends have decided to fork it and give it some love.
-
-There's a rust fork in progress by Greg Shuflin (https://github.com/neunenak/sshfs/tree/rust). Rust is a modern and memory safe programming language, and in the long term, it's not a bad decision to port it to rust.
-
-However, there are some downsides to Rust, such as it being still a young language, unstable API changes, it not having a standard specification yet, and long and compute-intensive compilation process etc. 
-
-So from a maintenance perspective, we are just here to fix issues, merge PRs, and give this project some love until the rust fork is ready (maybe even backport changes/features from there for a period of time).
-
-Everyone is welcome to create issues or PRs, please do contribute!
-
+Please use https://github.com/libfuse/sshfs instead
 
 # SSHFS
 
